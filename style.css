@@ -1,0 +1,500 @@
+        /* ==================== RESET & GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* ==================== FLOATING HEARTS BACKGROUND ==================== */
+        .hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff6f91;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== LOGIN PAGE ==================== */
+        #loginPage {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+        }
+
+        #loginPage h1 {
+            color: #ff6f91;
+            margin-bottom: 30px;
+            font-size: 2.2em;
+            text-shadow: 2px 2px #ffe0e9;
+        }
+
+        .meme-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .meme-container img {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 5px 20px rgba(255, 0, 100, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .meme-container img:hover {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid #ff6f91;
+            border-radius: 15px;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 0 10px rgba(255, 111, 145, 0.3);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #ff3f7f;
+            box-shadow: 0 0 15px rgba(255, 63, 127, 0.4);
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff6f91, #ff3f7f);
+            color: white;
+            border: none;
+            padding: 15px 50px;
+            font-size: 18px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 15px #ff6f91;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ff3f7f;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* ==================== CONFIRMATION OVERLAY ==================== */
+        .confirmation-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .confirmation-box {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .confirmation-box h2 {
+            color: #ff6f91;
+            margin-bottom: 30px;
+            font-size: 1.5em;
+            text-shadow: 1px 1px #ffd6e0;
+        }
+
+        /* ==================== MAIN GALLERY PAGE ==================== */
+        #mainPage {
+            display: none;
+            width: 100%;
+            max-width: 1400px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+        }
+
+        #mainPage h1 {
+            text-align: center;
+            color: #ff6f91;
+            margin-bottom: 50px;
+            font-size: 3em;
+            text-shadow: 2px 2px #ffe0e9;
+        }
+
+        /* ==================== PHOTO GALLERY - 3 COLUMNS ==================== */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            aspect-ratio: 1;
+            box-shadow: 0 5px 20px rgba(255, 111, 145, 0.3);
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 63, 127, 0.5);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 20px;
+        }
+
+        /* ==================== LIGHTBOX ==================== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 3000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(255, 63, 127, 0.7);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* ==================== MESSAGE SECTION ==================== */
+        .message-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 60px;
+            padding: 50px;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(255, 111, 145, 0.3);
+            position: relative;
+        }
+
+        .meme-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .meme-gallery img {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .meme-gallery img:hover {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        #messageButton {
+            font-size: 22px;
+            padding: 25px 70px;
+            box-shadow: 0 0 25px #ff6f91;
+        }
+
+        .no-gifs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .no-gifs img {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+        }
+
+        .message-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: left;
+            line-height: 1.8;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(255, 111, 145, 0.3);
+            max-width: 800px;
+            font-size: 16px;
+        }
+
+        .love-message {
+            display: none;
+            margin-top: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #ff3f7f;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* ==================== SWEET GIFS GALLERY ==================== */
+        .sweet-gifs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            max-width: 900px;
+        }
+
+        .sweet-gifs img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255, 111, 145, 0.4);
+            animation: popIn 0.5s ease-out backwards;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* ==================== CONTINUOUS HEART RAIN ==================== */
+        .heart-rain {
+            position: fixed;
+            font-size: 25px;
+            z-index: 3500;
+            pointer-events: none;
+            animation: rainFall linear forwards;
+        }
+
+        @keyframes rainFall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0.5;
+            }
+        }
+
+        /* ==================== CONFETTI EFFECT ==================== */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff3f7f;
+            opacity: 0.7;
+            z-index: 4000;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== SCREEN SHAKE EFFECT ==================== */
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            10% { transform: translate(-10px, -10px) rotate(-1deg); }
+            20% { transform: translate(10px, 10px) rotate(1deg); }
+            30% { transform: translate(-10px, 10px) rotate(-1deg); }
+            40% { transform: translate(10px, -10px) rotate(1deg); }
+            50% { transform: translate(-10px, -10px) rotate(-1deg); }
+            60% { transform: translate(10px, 10px) rotate(1deg); }
+            70% { transform: translate(-10px, 10px) rotate(-1deg); }
+            80% { transform: translate(10px, -10px) rotate(1deg); }
+            90% { transform: translate(-10px, 0) rotate(0deg); }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+
+        /* ==================== FIREWORKS EFFECT ==================== */
+        .firework {
+            position: fixed;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            z-index: 4000;
+            pointer-events: none;
+        }
+
+        @keyframes explode {
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty));
+                opacity: 0;
+            }
+        }
+
+        /* ==================== SCREEN FLASH EFFECT ==================== */
+        .flash-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3500;
+        }
+
+        @keyframes flash {
+            0% { opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0; }
+        }
+
+        .flash {
+            animation: flash 0.3s;
+        }
+
+        /* ==================== HEART EXPLOSION ==================== */
+        .heart-particle {
+            position: fixed;
+            font-size: 30px;
+            z-index: 4000;
+            pointer-events: none;
+            animation: heartExplode 1.5s ease-out forwards;
+        }
+
+        @keyframes heartExplode {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translate(var(--tx), var(--ty)) scale(1);
+                opacity: 0;
+            }
+        }
+
+        /* ==================== RESPONSIVE DESIGN ==================== */
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            #mainPage h1 {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }

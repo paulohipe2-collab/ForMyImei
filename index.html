@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para kay Lovey 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts" id="hearts"></div>
+    
+    <!-- Flash Overlay for Screen Flash Effect -->
+    <div class="flash-overlay" id="flashOverlay"></div>
+
+    <!-- ==================== LOGIN PAGE ==================== -->
+    <div id="loginPage">
+        <h1>Teka lang lovey... 💕</h1>
+        
+        <!-- Suspicious Meme GIFs -->
+        <div class="meme-container">
+            <img src="https://media.giphy.com/media/ANbD1CCdA3iI8/giphy.gif" alt="Meme 1">
+            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXd6bGdsd201YTBjNGNmeGd0dnhxamRlNWc4OTIxc3hhaHM0Y3BrdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/yxy69FCE06Ql0Fjk4Z/giphy.gif" alt="Meme 2">
+            <img src="https://media.giphy.com/media/kPtv3UIPrv36cjxqLs/giphy.gif" alt="Meme 3">
+        </div>
+
+        <p style="margin-bottom:20px; font-size:18px;">Kailan ba anniversary natin? 🤔</p>
+        <input type="text" id="anniversaryInput" placeholder="Hmm...">
+        <button onclick="checkAnniversary()">Submit</button>
+        <p class="error-message" id="errorMessage"></p>
+    </div>
+
+    <!-- ==================== CONFIRMATION OVERLAY ==================== -->
+    <div class="confirmation-overlay" id="confirmationOverlay">
+        <div class="confirmation-box">
+            <h2 id="confirmationQuestion"></h2>
+            <button onclick="nextConfirmation()">Oo</button>
+            <button onclick="wrongConfirmation()">Hindi</button>
+        </div>
+    </div>
+
+    <!-- ==================== MAIN GALLERY PAGE ==================== -->
+    <div id="mainPage">
+        <h1>Para sa aking lovey 💖</h1>
+        
+        <!-- Photo Gallery - Will be populated by JavaScript -->
+        <div class="photo-gallery" id="photoGallery"></div>
+
+        <!-- Message Section -->
+        <div class="message-section">
+            <!-- Extra Memes above the button -->
+            <div class="meme-gallery" id="messageMemeGallery"></div>
+            
+            <!-- Message Button (Locked until Feb 14) -->
+            <button id="messageButton" onclick="tryOpenMessage()">MESSAGE NI POGI SAYO 💌</button>
+            
+            <!-- NO GIFs Container (appears when button clicked before Feb 14) -->
+            <div class="no-gifs" id="noGifs"></div>
+            
+            <!-- Message Content (appears on Feb 14) -->
+            <div class="message-content" id="messageContent">
+                <p>
+                    Lovey ko, thankyou po sa walang pagsuporta sakin ng walang sumbat or kapalit🥹🥹, MAHAL NA MAHALLLL puuuu kitaaaa. 
+                    Kahit di tayo lalabas sa 14 gusto ko parin sabihin to para medyu romantic (ay oa) hihihihihi. 
+                    Alam ko po na minsan di tayo nagkakasunod tas naga away pero kahit ganonnn MAHAL NA MAHALLL parinn puu kitaaa hihihihihi di magbabago yun, 
+                    sana po patuloy mo parin akong suportahan hanggang sa umangat na tayo sa buhay. 
+                    Alam ko rin po mga pinag dadaan mo sa buhay kaya nandito lang po ako lagi para sayo, kakampi mo sa lahat ng bagay (kahit kaaway tingin mu sakin) 
+                    sana rin po malagpasan mo lahat ng paghihirap mo at kayanin. 
+                    Sympre susuportahan din kita sa lahat ng gusto mo hihihihihi
+                </p>
+                <button onclick="closeMessage()" style="margin-top:20px;">Close</button>
+            </div>
+
+            <!-- Love Message (appears after closing message) -->
+            <div class="love-message" id="loveMessage">
+                <!-- Sweet GIFs Gallery -->
+                <div class="sweet-gifs" id="sweetGifs"></div>
+                
+                <!-- Main Love Message -->
+                <div style="margin-top: 30px;">
+                    💖 ILOVEYOUUUUUUUUUUUUUSOMUCHHHHHHHHHHHHHHHHHHHHHHHHHH 💖
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== LIGHTBOX (for viewing photos) ==================== -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImg" src="" alt="Photo">
+    </div>
+
+    <!-- ==================== BACKGROUND MUSIC ==================== -->
+    <audio id="bgMusic" loop>
+        <source src="leonora.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script src="script.js"></script>
+</body>
+</html>
